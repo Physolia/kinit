@@ -351,7 +351,11 @@ static bool matchesPendingRequest(const QString &appId, const QString &pendingAp
 
     // Match sandboxed apps (e.g. flatpak), see https://phabricator.kde.org/D5775
     if (newAppId.endsWith(QLatin1String(".kdbus"))) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        return QStringView(newAppId).left(newAppId.length() - 6) == pendingAppId;
+#else
         return newAppId.leftRef(newAppId.length() - 6) == pendingAppId;
+#endif
     }
 
     return newAppId == pendingAppId;
