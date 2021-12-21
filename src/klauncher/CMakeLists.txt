@@ -32,7 +32,7 @@ target_link_libraries(kdeinit_klauncher
    KF5::Crash  # sig_handler
    KF5::WindowSystem # KStartupInfo + fixx11
    KF5::I18n   # i18n()
-   Qt5::DBus
+   Qt${QT_MAJOR_VERSION}::DBus
 )
 if (APPLE)
     target_link_libraries(kdeinit_klauncher "-framework CoreFoundation")

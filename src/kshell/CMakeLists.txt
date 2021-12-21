@@ -1,7 +1,7 @@
 add_executable(kshell5 shell.cpp)
 ecm_mark_nongui_executable(kshell5)
 
-target_link_libraries(kshell5 ${KINIT_SOCKET_LIBRARY} Qt5::Core)
+target_link_libraries(kshell5 ${KINIT_SOCKET_LIBRARY} Qt${QT_MAJOR_VERSION}::Core)
 
 if (NOT WIN32)
     target_link_libraries(kshell5 KF5::DBusAddons)

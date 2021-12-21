@@ -16,12 +16,12 @@ target_include_directories(kdeinit5 PRIVATE ${KInit_BINARY_DIR}) # for kinit_ver
 
 target_link_libraries(kdeinit5
     ${KINIT_SOCKET_LIBRARY}
-    Qt5::Gui #QFont::initialize
+    Qt${QT_MAJOR_VERSION}::Gui #QFont::initialize
     KF5::WindowSystem # KStartupInfo
     KF5::Crash # KCrash::loadedByKdeinit
     KF5::I18n #i18n() used on some error messages
     KF5::ConfigCore
-    Qt5::DBus
+    Qt${QT_MAJOR_VERSION}::DBus
 )
 
 if (NOT WIN32)
@@ -53,7 +53,7 @@ if (NOT WIN32)
   add_executable(kdeinit5_shutdown ../wrapper.cpp)
   ecm_mark_nongui_executable(kdeinit5_shutdown)
 
-  target_link_libraries(kdeinit5_shutdown  ${KINIT_SOCKET_LIBRARY} Qt5::Core KF5::DBusAddons)
+  target_link_libraries(kdeinit5_shutdown  ${KINIT_SOCKET_LIBRARY} Qt${QT_MAJOR_VERSION}::Core KF5::DBusAddons)
 
   install(TARGETS kdeinit5_shutdown ${KF5_INSTALL_TARGETS_DEFAULT_ARGS} )
 
@@ -61,7 +61,7 @@ if (NOT WIN32)
   add_executable(kdeinit5_wrapper ../wrapper.cpp)
   ecm_mark_nongui_executable(kdeinit5_wrapper)
 
-  target_link_libraries(kdeinit5_wrapper  ${KINIT_SOCKET_LIBRARY} Qt5::Core KF5::DBusAddons)
+  target_link_libraries(kdeinit5_wrapper  ${KINIT_SOCKET_LIBRARY} Qt${QT_MAJOR_VERSION}::Core KF5::DBusAddons)
 
   if (NOT X11_FOUND)
     target_compile_definitions(kdeinit5_wrapper PRIVATE -DNO_DISPLAY)

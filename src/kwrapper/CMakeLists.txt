@@ -7,7 +7,7 @@ else ()
     target_sources(kwrapper5 PRIVATE kwrapper.cpp)
 endif ()
 
-target_link_libraries(kwrapper5 ${KINIT_SOCKET_LIBRARY} Qt5::Core)
+target_link_libraries(kwrapper5 ${KINIT_SOCKET_LIBRARY} Qt${QT_MAJOR_VERSION}::Core)
 
 if (NOT WIN32)
     target_link_libraries(kwrapper5 KF5::DBusAddons)
