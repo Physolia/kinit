@@ -11,11 +11,10 @@
 #include <QObject>
 #include <QDBusAbstractAdaptor>
 #include <QDBusMessage>
-
+#include <QStringList>
 template<class T> class QList;
 template<class Key, class Value> class QMap;
 class QString;
-class QStringList;
 
 /*
  * Adaptor class for interface org.kde.KLauncher

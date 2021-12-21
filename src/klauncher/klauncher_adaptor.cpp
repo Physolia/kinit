@@ -7,7 +7,6 @@
 
 #include "klauncher_adaptor.h"
 #include <QArgument>
-#include <QByteRef>
 #include <QList>
 #include <QMap>
 #include <QString>

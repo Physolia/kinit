@@ -37,7 +37,7 @@
 #include <QDate>
 #include <QDir>
 #include <QFileInfo>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QFont>
 #include <KCrash>
 #include <KConfig>
@@ -338,7 +338,7 @@ static void complete_startup_info(KStartupInfoId &id, pid_t pid)
 QByteArray execpath_avoid_loops(const QByteArray &exec, int envc, const char *envs, bool avoid_loops)
 {
     QStringList paths;
-    const QRegExp pathSepRegExp(QStringLiteral("[:\b]"));
+    const QRegularExpression pathSepRegExp(QStringLiteral("[:\b]"));
     if (envc > 0) { // use the passed environment
         const char *path = get_env_var("PATH=", envc, envs);
         if (path != nullptr) {
